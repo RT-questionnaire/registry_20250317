@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メール登録</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/jquery-qrcode/master/src/qrcode.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/jquery-qrcode/master/src/jquery.qrcode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/encoding-japanese/encoding.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 登録フォーム -->
+        <div class="registration-form" id="registrationForm">
+            <h2>メール登録</h2>
+            <p class="intro-message">放射線治療後の症状などに関する定期的な問診のため、ご登録をお願いいたします。</p>
+            
+            <div class="form-group">
+                <label for="patientId">診察券番号</label>
+                <input type="text" id="patientId" name="patientId" maxlength="16" pattern="[0-9]*" inputmode="numeric" autocomplete="off">
+                <p class="form-hint">半角数字で入力してください。（例：123456）</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="templateId">アンケート内容</label>
+                <select id="templateId" name="templateId">
+                    <option value="template001">template001</option>
+                </select>
+            </div>
+            
+            <div class="button-container">
+                <button id="sendMailButton">メール送信</button>
+            </div>
+        </div>
+        
+        <!-- 結果表示エリア -->
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>メール送信準備完了</h2>
+            <div class="result-message" id="resultMessage"></div>
+            <div class="mail-container" id="mailContainer"></div>
+            <div id="qrcode"></div>
+            <div class="button-container">
+                <button id="backButton">戻る</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
