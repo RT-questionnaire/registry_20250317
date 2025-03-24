@@ -82,7 +82,8 @@ h2 {
     margin-top: 30px;
 }
 
-#sendMailButton, #backButton {
+/* 「送信」ボタンのスタイル */
+#sendMailButton {
     background-color: #4a90e2;
     color: white;
     border: none;
@@ -95,10 +96,30 @@ h2 {
     box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
 }
 
-#sendMailButton:hover, #backButton:hover {
+/* 「戻る」ボタンのスタイル - 薄グレー系 */
+#backButton {
+    background-color: #d0d0d0;
+    color: #555555;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: normal; /* 太字から通常に変更 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* シャドウを薄く */
+}
+
+#sendMailButton:hover {
     background-color: #3a7bd5;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+}
+
+#backButton:hover {
+    background-color: #c0c0c0; /* ホバー時は少し暗く */
+    transform: translateY(-1px); /* 変化を小さく */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .result-section {
@@ -107,7 +128,7 @@ h2 {
 }
 
 .result-message {
-    background-color: #f0f7ff;
+    background-color: #f0f0f0;
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 30px;
@@ -144,6 +165,69 @@ h2 {
     margin: 30px 0;
 }
 
+/* 個人情報の取り扱いに関する同意書のスタイル */
+.privacy-policy {
+    background-color: #f8f9fa;
+    border: 2px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-policy h3 {
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.policy-content {
+    line-height: 1.6;
+    color: #444;
+    font-size: 16px;
+}
+
+.policy-content h4 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.policy-content ul {
+    margin-top: 8px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.policy-content li {
+    margin-bottom: 5px;
+}
+
+.consent-checkbox {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.consent-checkbox label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: #444;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -184,5 +268,21 @@ h2 {
     .mail-link {
         padding: 12px 25px;
         font-size: 16px;
+    }
+    
+    .privacy-policy {
+        padding: 15px;
+    }
+    
+    .privacy-policy h3 {
+        font-size: 20px;
+    }
+    
+    .policy-content {
+        font-size: 15px;
+    }
+    
+    .policy-content h4 {
+        font-size: 17px;
     }
 } 

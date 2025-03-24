@@ -2,6 +2,15 @@ $(document).ready(function() {
     // フォームに入力があったかどうかのフラグ
     let hasUserInput = false;
     
+    // 同意チェックボックスのイベントリスナー
+    $('#privacyConsent').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#formContent').show();
+        } else {
+            $('#formContent').hide();
+        }
+    });
+    
     // フォーム入力イベントリスナー
     $('#patientId, #templateId').on('input', function() {
         hasUserInput = true;
@@ -10,7 +19,7 @@ $(document).ready(function() {
     // メール送信ボタンのクリックイベント
     $('#sendMailButton').on('click', function() {
         // フォームの値を取得
-        const patientId = $('#patientId').val().trim();
+        let patientId = $('#patientId').val().trim();
         const templateId = $('#templateId').val();
         
         // 入力チェック
@@ -19,6 +28,9 @@ $(document).ready(function() {
             $('#patientId').focus();
             return;
         }
+        
+        // 診察券番号から冒頭の0や途中のハイフンを削除
+        patientId = patientId.replace(/^0+|[-]/g, '');
         
         // メール本文を作成
         const subject = 'メール配信登録';
@@ -35,7 +47,7 @@ $(document).ready(function() {
         
         // 結果メッセージを表示
         $('#resultMessage').html(
-            '<p>以下のリンクをクリックすると、メール作成画面が開きます。</p>'
+            '<p>ご入力ありがとうございます。以下のボタンからメールを送信してください。</p>'
         );
         
         // メールリンクを表示

@@ -14,24 +14,66 @@
     <div class="container">
         <!-- 登録フォーム -->
         <div class="registration-form" id="registrationForm">
-            <h2>メール登録</h2>
-            <p class="intro-message">放射線治療後の症状などに関する定期的な問診のため、ご登録をお願いいたします。</p>
+            <h2>メール配信登録</h2>
+            <p class="intro-message">放射線治療後の症状などに関する定期的な問診のため、<br>以下の個人情報の取り扱いに関する同意書をお読みのうえ、<br>メールアドレスのご登録をお願いいたします。</p>
             
-            <div class="form-group">
-                <label for="patientId">診察券番号</label>
-                <input type="text" id="patientId" name="patientId" maxlength="16" pattern="[0-9]*" inputmode="numeric" autocomplete="off">
-                <p class="form-hint">半角数字で入力してください。（例：123456）</p>
+            <div class="privacy-policy">
+                <h3>個人情報取り扱い同意書</h3>
+                <div class="policy-content">
+                    <p>東北大学病院放射線治療科（以下「当科」）では、web問診アプリケーション（以下「本アプリ」）を通じてお預かりした個人情報について、以下のとおり適正かつ安全に管理・運用することに努めます。</p>
+                    <h4>１．利用目的</h4>
+                    <p>当科は、収集した個人情報について、以下の目的のために利用いたします。</p>
+                    <ul>
+                        <li>適切な医療提供のため</li>
+                        <li>ご本人およびご家族への病状説明のため</li>
+                        <li>電子カルテシステムへの情報の入力のため</li>
+                        <li>医学教育および研究のため</li>
+                    </ul>
+                    <h4>２．第三者提供</h4>
+                    <p>当科は、本アプリを通じて取得した個人データを、暗号化などの適切なセキュリティ措置を講じたうえで、Google LLCが運営する日本国外のサーバーに保管いたします。これに伴い、日本国外の法令に基づく開示請求などの対象となる可能性があります。本同意書に同意することにより、このことについても承諾されたものとみなします。
+                        <br>そのほか当科は、以下の場合を除いて、個人データを第三者へ提供することはしません。</p>
+                    <ul>
+                        <li>法令に基づく場合</li>
+                        <li>人の生命・身体・財産を保護するために必要で、本人から同意を得ることが難しい場合</li>
+                        <li>患者が意識不明または判断能力に疑いがあるという状態であり、治療時に家族や関係機関などへ病状を伝える必要がある場合</li>
+                        <li>公衆衛生の向上・児童の健全な育成のために必要で、本人から同意を得ることが難しい場合</li>
+                        <li>国の機関や地方公共団体、その委託者などによる法令事務の遂行にあたって協力する必要があり、かつ本人の同意を得ることで事務遂行に影響が生じる可能性がある場合</li>
+                    </ul>
+                    <h4>３．開示請求</h4>
+                    <p>貴殿の個人情報について、ご本人には、開示・訂正・削除・利用停止を請求する権利があります。手続きにあたっては、ご本人確認のうえ対応させていただきますが、代理人の場合も可能です。詳細については、以下「個人情報相談窓口」へご連絡ください。</p>
+                    <h4>個人情報相談窓口</h4>
+                    <p>〒980-8574<br>
+                    宮城県仙台市青葉区星陵町1-1<br>
+                    東北大学病院放射線治療科<br>
+                    TEL：022-717-7312<br>
+                    FAX：022-717-7316</p>
+                </div>
             </div>
             
-            <div class="form-group">
-                <label for="templateId">アンケート内容</label>
-                <select id="templateId" name="templateId">
-                    <option value="template001">template001</option>
-                </select>
+            <div class="consent-checkbox">
+                <label>
+                    <input type="checkbox" id="privacyConsent">
+                    私は、上記の個人情報取り扱い事項について同意します。
+                </label>
             </div>
             
-            <div class="button-container">
-                <button id="sendMailButton">メール送信</button>
+            <div id="formContent" style="display: none;">
+                <div class="form-group">
+                    <label for="patientId">診察券番号</label>
+                    <input type="text" id="patientId" name="patientId" maxlength="16" pattern="[0-9]*" inputmode="numeric" autocomplete="off">
+                    <p class="form-hint">半角数字で入力してください。（例：123456）</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="templateId">アンケート内容</label>
+                    <select id="templateId" name="templateId">
+                        <option value="template001">前立腺癌 放射線治療後の症状に関するアンケート</option>
+                    </select>
+                </div>
+                
+                <div class="button-container">
+                    <button id="sendMailButton">メール送信</button>
+                </div>
             </div>
         </div>
         
@@ -40,7 +82,7 @@
             <h2>メール送信準備完了</h2>
             <div class="result-message" id="resultMessage"></div>
             <div class="mail-container" id="mailContainer"></div>
-            <div id="qrcode"></div>
+            <!-- <div id="qrcode"></div> -->
             <div class="button-container">
                 <button id="backButton">戻る</button>
             </div>
